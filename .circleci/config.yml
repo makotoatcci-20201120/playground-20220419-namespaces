@@ -1,0 +1,27 @@
+version: 2.1
+
+orbs:
+  windows-screenshot: circle-makotom-orbs/windows-screenshot@0.0.1
+
+jobs:
+  build-windows:
+    machine:
+      image: windows-default
+    resource_class: windows.medium
+    steps:
+      - run:
+          command: winver
+          background: true
+      - windows-screenshot/take-screenshot
+
+  build-macos:
+    machine: true
+    resource_class: circle-makotom/darwin
+    steps:
+      - run: uname -
+
+workflows:
+  run:
+    jobs:
+      - build-windows
+      - build-macos
