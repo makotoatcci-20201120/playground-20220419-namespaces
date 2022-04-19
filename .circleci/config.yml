@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  windows-screenshot: circle-makotom-orbs/windows-screenshot@0.0.1
+  windows-screenshot: circle-makotom/windows-screenshot@volatile
 
 jobs:
   build-windows:
