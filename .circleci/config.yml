@@ -1,27 +1,11 @@
 version: 2.1
 
 orbs:
-  windows-screenshot: circle-makotom/windows-screenshot@volatile
+  hello-world: circle-makotom/hello-world-public@volatile
 
 jobs:
-  build-windows:
-    machine:
-      image: windows-default
-    resource_class: windows.medium
+  build:
+    docker:
+      - image: ubuntu:rolling
     steps:
-      - run:
-          command: winver
-          background: true
-      - windows-screenshot/take-screenshot
-
-  build-macos:
-    machine: true
-    resource_class: circle-makotom/darwin
-    steps:
-      - run: uname -
-
-workflows:
-  run:
-    jobs:
-      - build-windows
-      - build-macos
+      - hello-world/hello-world
